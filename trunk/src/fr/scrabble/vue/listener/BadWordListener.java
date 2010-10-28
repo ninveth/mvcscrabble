@@ -1,9 +1,10 @@
-package fr.scrabble.vue.listener;
+package src.fr.scrabble.vue.listener;
 
+import java.awt.Event;
 import java.util.EventListener;
 
 
 public interface BadWordListener extends EventListener {
-	public void BadWordPosed();
+	public void BadWordPosed(Event event);
 
 }
