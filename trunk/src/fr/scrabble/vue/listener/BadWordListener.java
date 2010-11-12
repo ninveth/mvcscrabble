@@ -1,4 +1,4 @@
-package src.fr.scrabble.vue.listener;
+package fr.scrabble.vue.listener;
 
 import java.awt.Event;
 import java.util.EventListener;
