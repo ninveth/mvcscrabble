@@ -13,17 +13,18 @@ import src.fr.scrabble.modele.modele.Letter;
 import src.fr.scrabble.vue.listener.BoardListener;
 
 public class Grille extends JPanel implements BoardListener{
-    
-    
+
+
     JGridButton cases[][];
+    PlateauSwing plateau;
     public final static Color TRIPLE_WORD= Color.RED;
     public final static Color TRIPLE_LETTER= Color.BLUE;
     public final static Color DOUBLE_WORD= Color.PINK;
     public final static Color DOUBLE_LETTER= Color.CYAN;
 
-    public Grille() {
+    public Grille(PlateauSwing plateau) {
 
-       
+        this.plateau = plateau;
         setLayout(new GridLayout(15, 15, 0, 0));
 
         cases = new JGridButton[15][15];
@@ -34,8 +35,8 @@ public class Grille extends JPanel implements BoardListener{
                 cases[i][j] = new JGridButton(cases1[i][j].toString(), i, j);
                 cases[i][j].setOpaque(true);
                 cases[i][j]
-                        .setBorder(javax.swing.BorderFactory
-                                .createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+                         .setBorder(javax.swing.BorderFactory
+                                 .createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
                 this.add(cases[i][j]);
             }
@@ -111,8 +112,8 @@ public class Grille extends JPanel implements BoardListener{
                 if (cases[i][j].getText().equals("-")) {
                     cases[i][j].setBackground(Color.green);
                     cases[i][j]
-                            .setBorder(javax.swing.BorderFactory
-                                    .createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+                             .setBorder(javax.swing.BorderFactory
+                                     .createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
                 }
             }
@@ -120,7 +121,7 @@ public class Grille extends JPanel implements BoardListener{
 
     }
 
-   
+
 
     @Override
     public void BoardChanged(Event event) {
