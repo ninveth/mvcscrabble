@@ -3,7 +3,7 @@
  */
 package src.fr.scrabble.modele.modele;
 
-
+import java.util.ArrayList;
 
 
 
@@ -14,6 +14,7 @@ package src.fr.scrabble.modele.modele;
 public class Board {
     
     private Letter[][] board = new Letter[15][15];  
+    private ArrayList<Word> words = new ArrayList<Word>();
     Letter un = Letter.LETTRE_DOUBLE;
     Letter deux = Letter.MOT_DOUBLE;
     Letter trois = Letter.LETTRE_TRIPLE;
@@ -103,6 +104,93 @@ public class Board {
     
     public Letter[][] getBoard() {
         return this.board;
+    }
+    
+    
+    /**
+     * La methode qui pose chaque lettre du mot permettant ainsi de ne pas
+     * compter la lettre qui est commune au nouveau mot et au mot de la grille
+     * sur lequel on �crit
+     * 
+     * @author Courtade
+     * @param i
+     * @param l
+     * @param x
+     * @param y
+     * @param direction
+     * @param bag
+     * @param rack
+     * @return
+     */
+    private boolean addLetter(int i, Letter l, int x, int y, char direction,
+            Bag bag, Rack rack) {
+
+        if (direction == 'r') {
+            if (this.words.isEmpty()) {
+                if (rack.contains(l)) {
+                    this.board[7][7 + i] = l;
+                    rack.removeLetter(l, bag);
+                } else if (rack.contains(this.joker)) {
+                    l.setValue(0);
+                    this.board[7 + i][7] = l;
+                    rack.removeLetter(this.joker, bag);
+
+                }
+            }
+            if ((this.board[x][y + i] == this.un
+                    || this.board[x][y + i] == this.deux
+                    || this.board[x][y + i] == this.trois
+                    || this.board[x][y + i] == this.quatre
+                    || this.board[x][y + i] == this.esp || this.board[x][y + i] == this.debut)
+                    && rack.contains(l)) {
+                this.board[x][y + i] = l;
+                rack.removeLetter(l, bag);
+                return true;
+            } else if (this.board[x][y + i] == l) {
+                return true;
+            } else if (rack.contains(this.joker)) {
+                l.setValue(0);
+                this.board[x][y + i] = l;
+                rack.removeLetter(this.joker, bag);
+            } else {
+                //System.out.println("Invalid letters");
+                return false;
+            }
+
+        } else if (direction == 'c') {
+            if (this.words.isEmpty()) {
+                if (rack.contains(l)) {
+                    this.board[7 + i][7] = l;
+                    rack.removeLetter(l, bag);
+                } else if (rack.contains(this.joker)) {
+                    l.setValue(0);
+                    this.board[7][7 + i] = l;
+                    rack.removeLetter(this.joker, bag);
+
+                }
+            }
+            if ((this.board[x + i][y] == this.un
+                    || this.board[x + i][y] == this.deux
+                    || this.board[x + i][y] == this.trois
+                    || this.board[x + i][y] == this.quatre
+                    || this.board[x + i][y] == this.esp || this.board[x + i][y] == this.debut)
+                    && rack.contains(l)) {
+                this.board[x + i][y] = l;
+                rack.removeLetter(l, bag);
+                return true;
+            } else if (this.board[x + i][y] == l) {
+                return true;
+            } else if (rack.contains(this.joker)) {
+                l.setValue(0);
+                this.board[x + i][y] = l;
+                rack.removeLetter(this.joker, bag);
+            } else {
+                //System.out.println("Invalid letters");
+                return false;
+            }
+
+        }
+        return false;
     }
 
     
