@@ -1,4 +1,4 @@
-package src.fr.scrabble.controler;
+package fr.scrabble.controler;
 
 
 
