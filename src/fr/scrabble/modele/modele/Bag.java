@@ -10,6 +10,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import src.fr.scrabble.modele.exceptions.BagIsEmptyException;
+
+
 
 /**
  * @author marovelo
@@ -40,9 +43,9 @@ public class Bag {
      * @return la lettre piochée
      * @throws Exception 
      */
-    public Letter pickRandomLetter() throws Exception {
+    public Letter pickRandomLetter()  {
         if (this.isEmpty())
-            throw new Exception();
+            throw new BagIsEmptyException();
         return this.letters.remove(Bag.rand.nextInt(this.letters.size()));
     }
 
