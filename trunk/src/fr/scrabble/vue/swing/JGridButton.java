@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+
+
 /**
  * @author marovelo
  *
@@ -15,14 +17,14 @@ import javax.swing.JButton;
 @SuppressWarnings("serial")
 public class JGridButton extends JButton implements ActionListener{
     
-    @SuppressWarnings("unused")
     private String str;
-    @SuppressWarnings("unused")
     private int x,y;
+    private PlateauSwing plateau;
     
-    public JGridButton(String s, int x ,int y){
+    public JGridButton(String s,int x,int y, PlateauSwing plateau){
         
         super(s);
+        this.plateau = plateau;
         this.x=x;
         this.y=y;
         
@@ -31,9 +33,10 @@ public class JGridButton extends JButton implements ActionListener{
         this.addActionListener(this);
     }
 
-    public void actionPerformed(ActionEvent arg0) {
-        // TODO Auto-generated method stub
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        new AjoutMot(this.x,this.y,plateau);
+       
         
     }
-
 }
