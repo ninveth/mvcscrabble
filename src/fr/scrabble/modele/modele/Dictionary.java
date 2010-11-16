@@ -59,6 +59,12 @@ public class Dictionary {
     public ArrayList<String> getDico() {
         return this.dico;
     }
+    
+//    public static void main(String[] args){
+//        Dictionary dic = new Dictionary("anglais.txt");
+//        boolean check = dic.contains("as");
+//        System.out.println(check);
+//    }
 
 
 }
