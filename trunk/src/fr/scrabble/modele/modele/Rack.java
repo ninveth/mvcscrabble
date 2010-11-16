@@ -28,7 +28,7 @@ public class Rack {
      *            un sac de lettres
      * @throws Exception 
      */
-    public void fillrack(Bag bag) throws Exception {
+    public void fillrack(Bag bag)  {
 
         while (this.letters.size() < NB_LETTERS_MAX) {
 
@@ -67,7 +67,7 @@ public class Rack {
      * @throws Exception 
      * 
      */
-    public void removeLetter(Letter l, Bag bag) throws Exception {
+    public void removeLetter(Letter l, Bag bag)  {
         this.letters.remove(l);
         this.fillrack(bag);
 
