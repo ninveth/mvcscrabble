@@ -9,10 +9,12 @@ import javax.swing.JPanel;
 
 
 
+
 public class JeuPanel extends JPanel  {
-    PlateauSwing plateau;
+ private PlateauSwing plateau;
     
     public JeuPanel(PlateauSwing plateau){
+        
         this.plateau = plateau;
         this.setBackground(Color.GREEN);       
         BorderLayout border = new BorderLayout();

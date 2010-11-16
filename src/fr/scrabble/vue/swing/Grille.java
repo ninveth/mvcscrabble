@@ -8,15 +8,19 @@ import javax.swing.JPanel;
 
 
 
+
+
+import src.fr.scrabble.modele.events.BoardChangedEvent;
 import src.fr.scrabble.modele.modele.Board;
 import src.fr.scrabble.modele.modele.Letter;
 import src.fr.scrabble.vue.listener.BoardListener;
 
+@SuppressWarnings("serial")
 public class Grille extends JPanel implements BoardListener{
 
 
+    private PlateauSwing plateau;
     JGridButton cases[][];
-    PlateauSwing plateau;
     public final static Color TRIPLE_WORD= Color.RED;
     public final static Color TRIPLE_LETTER= Color.BLUE;
     public final static Color DOUBLE_WORD= Color.PINK;
@@ -24,6 +28,7 @@ public class Grille extends JPanel implements BoardListener{
 
     public Grille(PlateauSwing plateau) {
 
+        plateau.getControler().getModel().addBoardListener(this);
         this.plateau = plateau;
         setLayout(new GridLayout(15, 15, 0, 0));
 
@@ -32,7 +37,7 @@ public class Grille extends JPanel implements BoardListener{
         Letter[][] cases1 = board.getBoard();     
         for (int i = 0; i < 15; i++) {
             for (int j = 0; j < 15; j++) {
-                cases[i][j] = new JGridButton(cases1[i][j].toString(), i, j);
+                cases[i][j] = new JGridButton(cases1[i][j].toString(), i, j,plateau);
                 cases[i][j].setOpaque(true);
                 cases[i][j]
                          .setBorder(javax.swing.BorderFactory
@@ -121,14 +126,36 @@ public class Grille extends JPanel implements BoardListener{
 
     }
 
+    public void repaint() {
+        if (this.plateau != null) {
+            Letter[][] letters = plateau.getControler().getModel()
+            .getBoardState();
+            for (int i = 0; i < 15; i++) {
+                for (int j = 0; j < 15; j++) {
+                    cases[i][j].setText(letters[i][j].toString());
+                    if (!cases[i][j].getText().equals("-")
+                            && !cases[i][j].getText().equals("1")
+                            && !cases[i][j].getText().equals("2")
+                            && !cases[i][j].getText().equals("3")
+                            && !cases[i][j].getText().equals("4")
+                            && !cases[i][j].getText().equals("*")) {
+                        cases[i][j].setBackground(Color.yellow);
+                        cases[i][j]
+                                 .setBorder(javax.swing.BorderFactory
+                                         .createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+                    }
+
+                }
+            }
+        }
+    }
 
     @Override
-    public void BoardChanged(Event event) {
+    public void BoardChanged(BoardChangedEvent event) {
         this.repaint();
         this.validate();
 
     }
-
 
 }
