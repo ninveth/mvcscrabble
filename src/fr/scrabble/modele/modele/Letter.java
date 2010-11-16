@@ -5,6 +5,8 @@ package src.fr.scrabble.modele.modele;
 
 
 
+
+
 /**
  * @author marovelo
  *
@@ -97,5 +99,4 @@ public class Letter {
        this.value=i;
         
     }
-
 }
