@@ -12,13 +12,14 @@ import java.util.Hashtable;
 
 
 
+
 /**
  * @author marovelo
  *
  */
 public class Board {
     
-    private Letter[][] board = new Letter[15][15];  
+    private Letter[][] board = new Letter[15][15];
     private ArrayList<Word> words = new ArrayList<Word>();
     Language lang = new LanguageEn();
     Letter un = Letter.LETTRE_DOUBLE;
@@ -107,12 +108,69 @@ public class Board {
         }
 
     }
-    
-    public Letter[][] getBoard() {
-        return this.board;
+
+    /**
+     * La m�thode qui ajoute si possible le mot sur la board
+     * 
+     * @author Courtade
+     * @param word
+     *            le mot a ajouter
+     * @param rack
+     *            le rack d'ou il vient
+     * @param bag
+     *            le sac qui va reremplir le rack
+     * @return
+     */
+    public boolean addWord(Word word, Rack rack, Bag bag, Dictionary dico) {
+
+        // on verifier si le mot est bien dans le dico
+        String mot = word.getWord();
+        boolean check = dico.contains(mot);
+        if(!check){
+            return false;
+        }else{
+            char charWord[] = word.getWord().toCharArray();
+            Hashtable<Letter, Integer> dic = this.lang.getDic();
+            Letter[] tmp = new Letter[1];
+            Letter letters[] = dic.keySet().toArray(tmp);
+
+            if ((((word.getY() < 15) && (charWord.length + word.getX()) < 16) && (word
+                    .getDirection() == 'c'))
+                    || (((word.getX() < 15) && (charWord.length + word.getY()) < 16) && (word
+                            .getDirection() == 'r'))) {
+
+                for (int i = 0; i < charWord.length; i++) {
+                    if (Character.isLowerCase(charWord[i]))
+                        charWord[i] = Character.toUpperCase(charWord[i]);
+                    for (int j = 0; j < letters.length; j++) {
+
+                        if (letters[j].getLetter() == charWord[i]) {
+
+                            if (!this.addLetter(i, letters[j], word.getX(), word
+                                    .getY(), word.getDirection(), bag, rack))
+                                return false;
+
+                        }
+                    }
+                }
+            }
+
+            // if (this.testWord(word.getWord(), dico) && this.closeWordsTest()) {
+            if (this.closeWordsTest()) {
+                this.words.add(word);            
+                return true;
+            }
+            //System.out.println("This word is not in the dictionary.");
+            return false;
+
+        }
     }
-    
-    
+
+    private boolean closeWordsTest() {
+        // TODO Auto-generated method stub
+        return true;
+    }
+
     /**
      * La methode qui pose chaque lettre du mot permettant ainsi de ne pas
      * compter la lettre qui est commune au nouveau mot et au mot de la grille
@@ -127,10 +185,9 @@ public class Board {
      * @param bag
      * @param rack
      * @return
-     * @throws Exception 
      */
     private boolean addLetter(int i, Letter l, int x, int y, char direction,
-            Bag bag, Rack rack) throws Exception {
+            Bag bag, Rack rack) {
 
         if (direction == 'r') {
             if (this.words.isEmpty()) {
@@ -199,63 +256,55 @@ public class Board {
         }
         return false;
     }
-    
-    
+
+    public boolean testWord(String word, Dictionary dico) {
+        return dico.contains(word);
+    }
+
+    public Letter[][] getBoard() {
+        return this.board;
+    }
+
+    public ArrayList<Word> getWords() {
+        return this.words;
+    }
+
+
+
+
     /**
-     * La m�thode qui ajoute si possible le mot sur la board
+     * affiche la board
      * 
-     * @author Courtade
-     * @param word
-     *            le mot a ajouter
-     * @param rack
-     *            le rack d'ou il vient
-     * @param bag
-     *            le sac qui va reremplir le rack
+     * @param tb
+     *            determine si on affiche ou non les marqueurs
      * @return
-     * @throws Exception 
      */
-    public boolean addWord(Word word, Rack rack, Bag bag, Dictionary dico) throws Exception {
-        char charWord[] = word.getWord().toCharArray();
-        Hashtable<Letter, Integer> dic = this.lang.getDic();
-        Letter[] tmp = new Letter[1];
-        Letter letters[] = dic.keySet().toArray(tmp);
+    public String toString(boolean tb) {
 
-        if ((((word.getY() < 15) && (charWord.length + word.getX()) < 16) && (word
-                .getDirection() == 'c'))
-                || (((word.getX() < 15) && (charWord.length + word.getY()) < 16) && (word
-                        .getDirection() == 'r'))) {
+        String s = "      0 1 2 3 4 5 6 7 8 9 a b c d e \n"
+            + "   +---------------------------------+";
+        for (int i = 0; i < 15; i++) {
+            s = s + "\n" + " " + Integer.toHexString(i) + " | ";
+            for (int j = 0; j < 15; j++) {
+                if (!tb
+                        && (this.board[i][j] == this.un
+                                || this.board[i][j] == this.deux
+                                || this.board[i][j] == this.trois
+                                || this.board[i][j] == this.quatre || this.board[i][j] == this.debut)) {
 
-            for (int i = 0; i < charWord.length; i++) {
-                if (Character.isLowerCase(charWord[i]))
-                    charWord[i] = Character.toUpperCase(charWord[i]);
-                for (int j = 0; j < letters.length; j++) {
-
-                    if (letters[j].getLetter() == charWord[i]) {
-
-                        if (!this.addLetter(i, letters[j], word.getX(), word
-                                .getY(), word.getDirection(), bag, rack))
-                            return false;
-
-                    }
+                    s = s + " " + this.esp;
+                } else {
+                    s = s + " " + this.board[i][j];
                 }
             }
+            s = s + "  | " + Integer.toHexString(i);
         }
-
-        // if (this.testWord(word.getWord(), dico) && this.closeWordsTest()) {
-        if (this.closeWordsTest()) {
-            this.words.add(word);            
-            return true;
-        }
-        //System.out.println("This word is not in the dictionary.");
-        return false;
+        s = s + "\n   +---------------------------------+"
+        + "\n      0 1 2 3 4 5 6 7 8 9 a b c d e";
+        System.out.println(s);
+        return s;
 
     }
-
-    private boolean closeWordsTest() {
-        
-        return true;
-    }
-
     
 
 }
