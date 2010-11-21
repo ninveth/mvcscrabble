@@ -8,7 +8,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-
+/**
+ * 
+ * @author marovelo
+ *
+ */
 
 public class InfosPanel extends JPanel implements ActionListener{
     
