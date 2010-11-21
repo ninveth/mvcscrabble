@@ -10,7 +10,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+/**
+ * 
+ * @author Dijgo
+ *
+ */
 
 public class EndFrame extends JFrame implements ActionListener{
     
