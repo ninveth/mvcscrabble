@@ -1,5 +1,11 @@
 package src.fr.scrabble.modele.events;
 
+/**
+ * @author marovelo 
+ *
+ */
+
+
 import java.util.EventObject;
 
 @SuppressWarnings("serial")
