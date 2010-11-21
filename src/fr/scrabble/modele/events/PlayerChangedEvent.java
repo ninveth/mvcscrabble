@@ -4,7 +4,10 @@ import java.util.EventObject;
 
 import src.fr.scrabble.modele.modele.Player;
 
-
+/**
+ * @author marovelo 
+ *
+ */
 
 @SuppressWarnings("serial")
 public class PlayerChangedEvent extends EventObject {
