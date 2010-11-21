@@ -6,7 +6,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
-
+/**
+ * 
+ * @author marovelo
+ * 
+ */
 
 public class CommandesMenu extends JMenu implements ActionListener{
 
