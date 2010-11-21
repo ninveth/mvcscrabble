@@ -110,13 +110,13 @@ public class Board {
     }
 
     /**
-     * La m�thode qui ajoute si possible le mot sur la board
+     * La méthode qui ajoute si possible le mot sur la board
      * 
-     * @author Courtade
+     * @author Marovelo
      * @param word
      *            le mot a ajouter
      * @param rack
-     *            le rack d'ou il vient
+     *            le rack d'où il vient
      * @param bag
      *            le sac qui va reremplir le rack
      * @return
@@ -128,7 +128,12 @@ public class Board {
         boolean check = dico.contains(mot);
         if(!check){
             return false;
-        }else{
+            
+            // ici on gère si on peut bien palcé le mot dans la grille c'est à dire que le mot 
+            //ne depasse pas la grille ,si on peut superposer deux lettres (la meme lettre oui!)
+            //
+            
+        }else{         
             char charWord[] = word.getWord().toCharArray();
             Hashtable<Letter, Integer> dic = this.lang.getDic();
             Letter[] tmp = new Letter[1];
@@ -167,16 +172,16 @@ public class Board {
     }
 
     private boolean closeWordsTest() {
-        // TODO Auto-generated method stub
+        
         return true;
     }
 
     /**
      * La methode qui pose chaque lettre du mot permettant ainsi de ne pas
      * compter la lettre qui est commune au nouveau mot et au mot de la grille
-     * sur lequel on �crit
+     * sur lequel on écrit
      * 
-     * @author Courtade
+     * @author Alpha
      * @param i
      * @param l
      * @param x
