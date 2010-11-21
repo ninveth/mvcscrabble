@@ -11,7 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-
+/**
+ * 
+ * @author marovelo
+ *
+ */
 
 public class DebutFrame extends JFrame implements ActionListener{
     
