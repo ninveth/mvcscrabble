@@ -17,6 +17,13 @@ import javax.swing.JTextField;
 import src.fr.scrabble.modele.events.BadWordEvent;
 import src.fr.scrabble.vue.listener.BadWordListener;
 
+
+/**
+ * 
+ * @author marovelo
+ *
+ */
+
 @SuppressWarnings("serial")
 public class AjoutMot extends JFrame implements ActionListener,BadWordListener {
     
