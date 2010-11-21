@@ -9,7 +9,11 @@ import javax.swing.JMenuItem;
 import src.fr.scrabble.controler.Controler;
 import src.fr.scrabble.modele.modele.Scrabble;
 
-
+/**
+ * 
+ * @author marovelo Alpha
+ *
+ */
 
 public class OptionsMenu extends JMenu implements ActionListener {
     
