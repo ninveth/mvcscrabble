@@ -14,7 +14,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
-
+/**
+ * 
+ * @author marovelo  Cherif
+ *
+ */
 
 public class LookFrame extends JDialog implements ActionListener{
     
