@@ -1,7 +1,6 @@
 package src.fr.scrabble.vue.swing;
 
 import java.awt.Color;
-import java.awt.Event;
 import java.awt.GridLayout;
 
 import javax.swing.JPanel;
@@ -14,6 +13,12 @@ import src.fr.scrabble.modele.events.BoardChangedEvent;
 import src.fr.scrabble.modele.modele.Board;
 import src.fr.scrabble.modele.modele.Letter;
 import src.fr.scrabble.vue.listener.BoardListener;
+
+/**
+ * 
+ * @author marovelo
+ *
+ */
 
 @SuppressWarnings("serial")
 public class Grille extends JPanel implements BoardListener{
