@@ -8,7 +8,7 @@ import src.fr.scrabble.modele.modele.Scrabble;
 import src.fr.scrabble.vue.swing.PlateauSwing;
 
 /**
- * @author marovelo
+ * @author marovelo Alpha Dijgo Cherif
  *
  */
 public class Main {
