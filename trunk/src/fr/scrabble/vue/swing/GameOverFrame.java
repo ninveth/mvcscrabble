@@ -13,7 +13,11 @@ import javax.swing.JPanel;
 import src.fr.scrabble.controler.Controler;
 import src.fr.scrabble.modele.modele.Scrabble;
 
-
+/**
+ * 
+ * @author Cherif
+ *
+ */
 
 public class GameOverFrame extends JFrame implements ActionListener {
     
