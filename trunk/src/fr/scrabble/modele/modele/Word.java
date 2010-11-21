@@ -8,7 +8,7 @@ import java.util.Hashtable;
 
 
 /**
- * @author marovelo
+ * @author marovelo cherif amadou alpha
  *
  */
 public class Word {
