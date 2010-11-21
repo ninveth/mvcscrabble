@@ -18,6 +18,13 @@ import src.fr.scrabble.modele.events.ScoresChangedEvent;
 import src.fr.scrabble.vue.listener.PlayerListener;
 import src.fr.scrabble.vue.listener.ScoresListener;
 
+
+/**
+ * 
+ * @author Cherif Alpha
+ *
+ */
+
 public class ScorePanel extends JPanel implements ScoresListener,PlayerListener,ActionListener{
 
 
