@@ -9,7 +9,7 @@ public class LanguageEn extends Language {
     
     /**
      * On ajoute au langage les lettres. les values de la hashtable sont les
-     * lettres et les keys sont la valeur correspondant � la lettre
+     * lettres et les keys sont la valeur correspondant à la lettre
      */
     public LanguageEn() {
         this.dic.put(new Letter('A', 1), 9);
