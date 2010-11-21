@@ -1,0 +1,20 @@
+Projet Scrabble 
+Eric MAROVELO
+Hamady CHERIF
+Djigo AMADOU
+Alpha IBRAHIMA
+L3 Info 
+
+Le dictionnaire doit se trouver a la racine du projet et s'appeller anglais.txt, pour changer 
+le nom il suffit de le modifier à la ligne 14 de la classe Scrabble.
+
+Toutes les fonctions definies dans help sont implémentées. l'ajout de mot teste si le mot est
+dans le rack,dans le dico, si son emplacement va etre valide et le rack est rerempli.
+
+La gestion des points est  gérée de même que les tests sur le mot posé et les mots 
+créés de ce fait.
+
+Au niveau du jeu proprement dit, on commence par choisir le nom des deux joueurs, si rien n'est
+spécifié les noms seront Player 1 et Player 2, ensuite le jeu commence.
+
+Le jeu s'arrete quand il n'y a plus de lettres dans le sac.
