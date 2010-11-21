@@ -1,7 +1,11 @@
 package src.fr.scrabble.modele.modele;
 
 
-
+/**
+ * 
+ * @author marovelo alpha cherif amadou
+ *
+ */
 public class Scrabble extends AbstractModel {
     
     public static boolean tg, turn = true;
