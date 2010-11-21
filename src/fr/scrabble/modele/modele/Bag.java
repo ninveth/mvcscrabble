@@ -15,7 +15,7 @@ import src.fr.scrabble.modele.exceptions.BagIsEmptyException;
 
 
 /**
- * @author marovelo
+ * @author marovelo Alpha
  *
  */
 public class Bag {
