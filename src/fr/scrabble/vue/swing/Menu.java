@@ -2,7 +2,11 @@ package src.fr.scrabble.vue.swing;
 
 import javax.swing.JMenuBar;
 
-
+/**
+ * 
+ * @author Dijgo
+ *
+ */
 public class Menu extends JMenuBar {
     
     PlateauSwing p;
