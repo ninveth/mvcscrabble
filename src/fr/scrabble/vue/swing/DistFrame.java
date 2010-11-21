@@ -12,7 +12,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
-
+/**
+ * 
+ * @author marovelo
+ * pour un conteneur qui ser à afficher l'etat du bag 
+ */
 
 
 public class DistFrame extends JDialog implements ActionListener {
