@@ -10,6 +10,13 @@ import src.fr.scrabble.modele.events.PlayerChangedEvent;
 import src.fr.scrabble.modele.modele.Rack;
 import src.fr.scrabble.vue.listener.PlayerListener;
 
+
+/**
+ * 
+ * @author Dijgo
+ *
+ */
+
 public class RackPanel extends JPanel implements PlayerListener{
     
     private Rack rack;
