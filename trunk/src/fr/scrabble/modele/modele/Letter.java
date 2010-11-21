@@ -8,7 +8,7 @@ package src.fr.scrabble.modele.modele;
 
 
 /**
- * @author marovelo
+ * @author Alpha 
  *
  */
 public class Letter {
