@@ -1,5 +1,11 @@
 package src.fr.scrabble.controler;
 
+/**
+ * @author marovelo cherif amadou alpha
+ *
+ */
+
+
 import src.fr.scrabble.modele.modele.AbstractModel;
 import src.fr.scrabble.modele.modele.Word;
 
