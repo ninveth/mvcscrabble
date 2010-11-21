@@ -11,7 +11,11 @@ import src.fr.scrabble.modele.events.EndGameEvent;
 import src.fr.scrabble.vue.listener.EndGameListener;
 
 
-
+/**
+ * 
+ * @author marovelo Alpha Cherif Dijgo
+ *
+ */
 
 
 @SuppressWarnings("serial")
