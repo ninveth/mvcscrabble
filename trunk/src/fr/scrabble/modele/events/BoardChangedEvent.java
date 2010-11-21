@@ -4,7 +4,10 @@ import java.util.EventObject;
 
 import src.fr.scrabble.modele.modele.Letter;
 
-
+/**
+ * @author  cherif 
+ *
+ */
 
 public class BoardChangedEvent extends EventObject {
 
